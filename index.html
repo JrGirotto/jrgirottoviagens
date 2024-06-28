@@ -26,11 +26,41 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
 		
-		<!-- Button Whatsapp  -->
+		<!-- Button Whatsapp  
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<a href="https://web.whatsapp.com/send?phone=5514997040256&text=Quero%20adquirir%20a%20melhor%20viagem%20da%20minha%20vida!" 
 		style=  "position:fixed;width:60px;height:60px;bottom:40px;right:40px;background-color:#ff6600;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 1px 1px 2px #888; z-index:1000;" target="_blank"> <i style="margin-top:16px" class="fa fa-whatsapp"></i>
-	</a>
+	</a>-->
+	
+	<!-- Start of Async Drift Code -->
+<script>
+"use strict";
+
+!function() {
+  var t = window.driftt = window.drift = window.driftt || [];
+  if (!t.init) {
+    if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+    t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+    t.factory = function(e) {
+      return function() {
+        var n = Array.prototype.slice.call(arguments);
+        return n.unshift(e), t.push(n), t;
+      };
+    }, t.methods.forEach(function(e) {
+      t[e] = t.factory(e);
+    }), t.load = function(t) {
+      var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+      o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+      var i = document.getElementsByTagName("script")[0];
+      i.parentNode.insertBefore(o, i);
+    };
+  }
+}();
+drift.SNIPPET_VERSION = '0.3.1';
+drift.load('fcbxfb4b5sn7');
+</script>
+<!-- End of Async Drift Code -->
+	
     </head>
     <body>
         <!--[if lte IE 9]>
@@ -110,11 +140,6 @@
                                             <!-- <li><a href="#" class="arrow"> ORÇAMENTOS</a>
                                                 <ul class="submenu">
                                                     <li><a href="#">Submenu 1</a></li>
-                                                    <li><a href="#">Submenu 2</a></li>
-                                                    <li><a href="#">Submenu 3</a></li>
-                                                    <li><a href="#">Submenu 4</a></li>
-                                                    <li><a href="#">Submenu 5</a></li>
-                                                    <li><a href="#">Submenu 6</a></li>
                                                 </ul> 
                                              </li> -->
                                             <li>
@@ -347,19 +372,14 @@
                         <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
                             <div class="footer-widget mb-50">
                                 <div class="footer-title">
-                                    <!-- <h3>Somos Credenciados</h3> -->
+                                    <h5>Sua Viagem em até 10x sem juros*</h5>
                                 </div>
                                 <div class="footer-content">
                                     <!-- <div class="quick-links"> -->
                                         <ul>
-											 <!-- <li><a href="https://cadastur.turismo.gov.br/hotsite/#!/public/sou-turista/inicio" target="_blank"><img width="300" height="110" src="assets/img/cadasturft.png"></a></li>  -->
-                                           
-                                           <!--  <li><a href="#">Wellness</a></li>
-                                            <li><a href="#">Vintage Stores</a></li>
-                                            <li><a href="#">Trekking</a></li>
-                                            <li><a href="#">Sightseeing</a></li>
-                                            <li><a href="#">Tours</a></li>
-                                            <li><a href="#">Sample Page</a></li> -->
+                                            <li><img width="300" height="110" style="border: solid; color: orange; border-width: 1px;" src="assets/img/pagamento.png"></li>
+                                            <!-- li><a href="#">Vintage Stores</a></li>
+                                            <li><a href="#">Trekking</a></li> -->
                                         </ul>
                                     <!-- </div> -->
                                 </div>
@@ -398,17 +418,19 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="footer-copyright">
+            <div class="footer-copyright">
                 <div class="container">
                     <div class="footer-copyright-inner">
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-12">
                                 <div class="copyright-text">
-                                    <p>2024 |<a href="www.jrgirotto.com.br"> Powered by JR GIROTTO TECNOLOGIA®</a>. 
+                                    <p>2024 |<a href="www.jrgirotto.com.br"> JR GIROTTO TECNOLOGIA®</a></p>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-12">
                                 <div class="footer-policy ">
+									<p><small><b>*</b>mediante disponibilidade</small></p>
+                               
                                     <!-- <a href="#">Termos & Condições</a>
                                     <a href="#"> Privacidade</a> 
                                     <a href=>Suporte</a>
@@ -417,7 +439,7 @@
                         </div>
                     </div>
                 </div>
-             </div> -->
+             </div> 
         </footer>
         <!-- footer area end -->
 
