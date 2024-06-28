@@ -32,7 +32,35 @@
 		style=  "position:fixed;width:60px;height:60px;bottom:40px;right:40px;background-color:#ff6600;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 1px 1px 2px #888; z-index:1000;" target="_blank"> <i style="margin-top:16px" class="fa fa-whatsapp"></i>
 	</a>-->
 	
-	<!-- Start of Async Drift Code -->
+	<!-- Drift Code -->
+<script>
+  "use strict";
+
+  !function() {
+    var t;
+    if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0, 
+    t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+    t.factory = function(e) {
+      return function() {
+        var n;
+        return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+      };
+    }, t.methods.forEach(function(e) {
+      t[e] = t.factory(e);
+    }), t.load = function(t) {
+      var e, n, o, i;
+      e = 3e5, i = Math.ceil(new Date() / e) * e, n = document.createElement("script"), 
+      n.type = "text/javascript", n.async = !0, n.crossorigin = "anonymous", n.src = "https://js.driftt.com/include/" + i + "/" + t + ".js", 
+      o = document.getElementsByTagName("script")[0], o.parentNode.insertBefore(n, o);
+    });
+  }();
+  drift.SNIPPET_VERSION = '0.3.1';
+  drift.load('fcbxfb4b5sn7');
+</script>
+
+	
+	
+	<!-- Start of Async Drift Code 
 <script>
 "use strict";
 
