@@ -40,8 +40,7 @@
 		
 		<!-- Button Whatsapp --!>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<a href="https://wa.me/5514996985241?text=Quero%20Viajar!" 
-		style=  "position:fixed;width:60px;height:60px;bottom:40px;right:40px;background-color:#ff6600;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 1px 1px 2px #888; z-index:1000;" target="_blank"> <i style="margin-top:16px" class="fa fa-whatsapp"></i>
+	<a data-bs-toggle="modal" data-bs-target="#formModal" style=  "position:fixed;width:60px;height:60px;bottom:40px;right:40px;background-color:#ff6600;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 1px 1px 2px #888; z-index:1000;" target="_blank"> <i style="margin-top:16px" class="fa fa-whatsapp"></i>
 	</a> 
 	
     </head>
@@ -63,6 +62,80 @@
             </div> 
         </div>
         <!-- pre loader area end -->
+		
+ 
+
+  <!-- Modal -->
+  <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+			<img src="assets/img/logo/logo_blue.png" alt="logo" height='50';>
+          <h5 class="modal-title" id="formModalLabel">Reserve sua Viagem</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="contactForm" novalidate>
+            <div class="mb-3">
+              <label for="name" class="form-label">Nome Completo</label>
+              <input type="text" class="form-control" id="name" placeholder="Digite seu nome completo" required>
+              <div class="invalid-feedback">
+                Por favor, insira seu nome.
+              </div>
+            </div>
+			 <div class="mb-3">
+              <label for="name" class="form-label">Destino</label>
+              <input type="text" class="form-control" id="destino" placeholder="Para onde deseja viajar?" required>
+              <div class="invalid-feedback">
+                Por favor, insira seu destino.
+              </div>
+            </div>
+			<!-- Datas Ida e Volta na mesma linha -->
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="ida" class="form-label">Data de Ida:</label>
+                <input type="date" class="form-control" id="ida" placeholder="Início da Viagem" min="" required>
+                <div class="invalid-feedback">
+                  Por favor, insira uma data válida.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="volta" class="form-label">Data da Volta:</label>
+                <input type="date" class="form-control" id="volta" placeholder="Volta da Viagem"  required>
+                <div class="invalid-feedback">
+                  Por favor, insira uma data válida.
+                </div>
+              </div>
+            </div>
+            <!-- Email e WhatsApp na mesma linha -->
+            <div class="row">
+			
+				<div class="col-md-6 mb-3">
+                <label for="whatsapp" class="form-label">WhatsApp</label>
+                <input type="text" class="form-control" id="whatsapp" placeholder="Digite seu WhatsApp" required>
+                <div class="invalid-feedback">
+                  Por favor, insira seu número de WhatsApp.
+                </div>
+              </div>
+	
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Digite seu email" required>
+                <div class="invalid-feedback">
+                  Por favor, insira um email válido.
+                </div>
+              </div>  
+            </div>	
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="validateAndSend()">Solicitar Cotação</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
 
 
         <!-- scroll up area start -->
@@ -78,8 +151,8 @@
                     <div class="row align-items-center">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-5 col-6">
                             <div class="header-top-left">
-                                <span class="d-none d-sm-inline-block"><i class="fa fa-whatsapp"></i><a href="https://wa.me/5514996985241?text=Quero%20Viajar!" target="_blank" >Quero viajar!</a></span>
-                                <span class="d-none d-lg-inline-block"><i class="fas fa-envelope"></i><a href="mailto:viagens@jrgirotto.com.br" target="_blank">viagens@jrgirotto.com.br</a></span>
+                                <!-- <span class="d-none d-sm-inline-block"><i class="fa fa-whatsapp"></i><a href="https://wa.me/5514996985241?text=Quero%20Viajar!" target="_blank" >Quero viajar!</a></span> 
+                                <span class="d-none d-lg-inline-block"><i class="fas fa-envelope"></i><a href="mailto:viagens@jrgirotto.com.br" target="_blank">viagens@jrgirotto.com.br</a></span> -->
                                  </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-7 col-6">
@@ -145,7 +218,8 @@
                                     <a class="search" href="javascript:void(0)"><i class="fas fa-search"></i></a>
                                 </div> -->
                                 <div class="header-btn ml-45 d-none d-sm-inline-block">
-                                    <a href="https://wa.me/5514996985241?text=Quero%20Viajar!" target="_blank" class="btn">Agende sua viagem</a>
+								 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">Agende sua viagem</button>
+                                    <!-- <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">Agende sua viagem</a> -->
                                 </div>
                             </div>
                         </div>
@@ -183,7 +257,7 @@
                                         <p data-animation="fadeInUp" data-delay=".5s">Qual será  seu próximo destino?</p>
 
                                         <div class="slider-btn-wrapper">
-                                            <a href="https://wa.me/5514996985241?text=Quero%20Viajar!" target="_blank" class="btn" data-animation="fadeInUp" data-delay=".7s">Já sei meu próximo destino!</a>
+                                            <!-- <a href="https://wa.me/5514996985241?text=Quero%20Viajar!" target="_blank" class="btn" data-animation="fadeInUp" data-delay=".7s">Já sei meu próximo destino!</a> -->
                                             <!-- <a href="#" class="btn btn-border" data-animation="fadeInUp" data-delay=".9s">Mais informações</a> -->
                                         </div>
                                     </div>
@@ -205,7 +279,7 @@
                                         <p data-animation="fadeInUp" data-delay=".5s">Como é bom colecionar momentos inesquecíveis!</p>
 
                                         <div class="slider-btn-wrapper">
-                                            <a href="https://wa.me/5514996985241?text=Quero%20Viajar%20para%20a%20França!" target="_blank" class="btn" data-animation="fadeInUp" data-delay=".7s">Quero conhecer a França!</a>
+                                            <!-- <a href="https://wa.me/5514996985241?text=Quero%20Viajar%20para%20a%20França!" target="_blank" class="btn" data-animation="fadeInUp" data-delay=".7s">Quero conhecer a França!</a> -->
                                             <!-- <a href="#" class="btn btn-border" data-animation="fadeInUp" data-delay=".9s">more info</a> -->
                                         </div>
                                     </div>
@@ -222,7 +296,7 @@
                                         <p data-animation="fadeInUp" data-delay=".5s">Nem dá vontade de voltar pra casa, rs!</p>
 
                                         <div class="slider-btn-wrapper">
-                                            <a href="https://wa.me/5514996985241?text=Quero%20Viajar%20para%20o%20Nordeste!" target="_blank" class="btn" data-animation="fadeInUp" data-delay=".7s">BORAAAA!</a>
+                                            <!-- <a href="https://wa.me/5514996985241?text=Quero%20Viajar%20para%20o%20Nordeste!" target="_blank" class="btn" data-animation="fadeInUp" data-delay=".7s">BORAAAA!</a> -->
                                             <!-- <a href="#" class="btn btn-border" data-animation="fadeInUp" data-delay=".9s">more info</a> -->
                                         </div>
                                     </div>
@@ -238,7 +312,7 @@
                                         <h1 data-animation="fadeInUp" data-delay=".3s">CHINA</h1>
                                         <p data-animation="fadeInUp" data-delay=".5s">A Grande Muralha!</p>
                                         <div class="slider-btn-wrapper">
-                                            <a href="https://wa.me/5514996985241?text=Quero%20Viajar%20para%20a%20China!" target="_blank" class="btn" data-animation="fadeInUp" data-delay=".7s">Quero conhecer a China!</a>
+                                            <!-- <a href="https://wa.me/5514996985241?text=Quero%20Viajar%20para%20a%20China!" target="_blank" class="btn" data-animation="fadeInUp" data-delay=".7s">Quero conhecer a China!</a> -->
                                             <!-- <a href="#" class="btn btn-border" data-animation="fadeInUp" data-delay=".9s">more info</a> -->
                                         </div>
                                     </div>
@@ -254,7 +328,7 @@
                                         <h1 data-animation="fadeInUp" data-delay=".3s">Machu Picchu, Peru</h1>
                                         <p data-animation="fadeInUp" data-delay=".5s">Marco da história Inca!</p>
                                         <div class="slider-btn-wrapper">
-                                            <a href="https://wa.me/5514996985241?text=Quero%20Viajar%20para%20Peru!" target="_blank" class="btn" data-animation="fadeInUp" data-delay=".7s">Quero conhecer!</a>
+                                            <!-- <a href="https://wa.me/5514996985241?text=Quero%20Viajar%20para%20Peru!" target="_blank" class="btn" data-animation="fadeInUp" data-delay=".7s">Quero conhecer!</a> -->
                                             <!-- <a href="#" class="btn btn-border" data-animation="fadeInUp" data-delay=".9s">more info</a> -->
                                         </div>
                                     </div>
@@ -270,7 +344,7 @@
                                         <h1 data-animation="fadeInUp" data-delay=".3s">Alemanha</h1>
                                         <p data-animation="fadeInUp" data-delay=".5s">As maravilhas da Europa: arte, arquitetura, natureza...</p>
                                         <div class="slider-btn-wrapper">
-                                            <a href="https://wa.me/5514996985241?text=Quero%20Viajar%20para%20a%20Alemanha!" target="_blank" class="btn" data-animation="fadeInUp" data-delay=".7s">Quero conhecer a Europa!</a>
+                                            <!-- <a href="https://wa.me/5514996985241?text=Quero%20Viajar%20para%20a%20Alemanha!" target="_blank" class="btn" data-animation="fadeInUp" data-delay=".7s">Quero conhecer a Europa!</a> -->
                                             <!-- <a href="#" class="btn btn-border" data-animation="fadeInUp" data-delay=".9s">more info</a> -->
                                         </div>
                                     </div>
@@ -286,7 +360,7 @@
                                         <h1 data-animation="fadeInUp" data-delay=".3s">Itália</h1>
                                         <p data-animation="fadeInUp" data-delay=".5s">A Capela Sistina, as magníficas obras de Michelangelo!</p>
                                         <div class="slider-btn-wrapper">
-                                            <a href="https://wa.me/5514996985241?text=Quero%20Viajar%20para%20a%20Itália!" target="_blank" class="btn" data-animation="fadeInUp" data-delay=".7s">Quero conhecer a Itália!</a>
+                                            <!-- <a href="https://wa.me/5514996985241?text=Quero%20Viajar%20para%20a%20Itália!" target="_blank" class="btn" data-animation="fadeInUp" data-delay=".7s">Quero conhecer a Itália!</a> -->
                                             <!-- <a href="#" class="btn btn-border" data-animation="fadeInUp" data-delay=".9s">more info</a> -->
                                         </div>
                                     </div>
@@ -440,6 +514,10 @@
         <script src="assets/js/imagesloaded.pkgd.min.js"></script>
         <script src="assets/js/countdown.js"></script>
         <script src="assets/js/main.js"></script>
+		
+		<!-- Scripts do Bootstrap - Modal -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="assets/js/modal.js"></script>
 		
 		
 		
