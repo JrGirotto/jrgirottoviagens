@@ -1,59 +1,93 @@
-// Função para definir a data mínima para hoje no campo "Data de Ida"
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário de Viagem</title>
+  <style>
+    .was-validated input:invalid {
+      border-color: red;
+    }
+    .was-validated input:valid {
+      border-color: green;
+    }
+  </style>
+</head>
+<body onload="setMinDate()">
+
+  <form id="contactForm" novalidate>
+    <label for="name">Nome:</label>
+    <input type="text" id="name" required><br><br>
+
+    <label for="destino">Destino:</label>
+    <input type="text" id="destino" required><br><br>
+
+    <label for="ida">Data de Ida:</label>
+    <input type="date" id="ida" required><br><br>
+
+    <label for="volta">Data de Volta:</label>
+    <input type="date" id="volta" required><br><br>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" required><br><br>
+
+    <label for="whatsapp">WhatsApp:</label>
+    <input type="tel" id="whatsapp" required pattern="^\d{10,15}$" title="Digite apenas números, com DDD"><br><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    // Define a data mínima para ida e volta
     function setMinDate() {
       const today = new Date();
-      today.setDate(today.getDate() + 1); // Adiciona um dia para obter a data de amanhã
-      const tomorrow = today.toISOString().split('T')[0]; // Formato 'YYYY-MM-DD'
-
+      today.setDate(today.getDate() + 1);
+      const tomorrow = today.toISOString().split('T')[0];
       document.getElementById('ida').setAttribute('min', tomorrow);
       document.getElementById('volta').setAttribute('min', tomorrow);
     }
-  
-  
-  
-    // Função de validação
-    function validateAndSend() {
-      // Referência ao formulário
-      const form = document.getElementById('contactForm');
 
-      // Verifica se o formulário é válido
-      if (form.checkValidity()) {
-        // Se for válido, enviar os dados para o WhatsApp
-        sendToWhatsApp();
+    // Garante que a data de volta seja maior ou igual à de ida
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('ida').addEventListener('change', function () {
+        const ida = document.getElementById('ida').value;
+        document.getElementById('volta').setAttribute('min', ida);
+      });
+    });
+
+    // Validação e envio
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const form = this;
+      // Exibe mensagens de erro se houver campos inválidos
+      if (form.reportValidity()) {
+        sendToEmail();
       } else {
-        // Se não for válido, mostrar as mensagens de erro
         form.classList.add('was-validated');
       }
-    }
+    });
 
-    // Função para enviar os dados para o WhatsApp
-    function sendToWhatsApp() {
-      // Coletando os dados do formulário
+    // Função para montar e abrir o e-mail
+    function sendToEmail() {
       const name = document.getElementById('name').value;
       const destino = document.getElementById('destino').value;
-	  const ida = document.getElementById('ida').value;
+      const ida = document.getElementById('ida').value;
       const volta = document.getElementById('volta').value;
       const email = document.getElementById('email').value;
       const whatsapp = document.getElementById('whatsapp').value;
 
-      // Número de WhatsApp da empresa (adicione o código do país, por exemplo: 5511999999999 para Brasil)
-      const companyWhatsAppNumber = '5514996985241';
+      const subject = encodeURIComponent('Solicitação de viagem');
+      const body = encodeURIComponent(
+        `Nome: ${name}\n` +
+        `Destino: ${destino}\n` +
+        `Data de ida: ${ida}\n` +
+        `Data de volta: ${volta}\n` +
+        `E-mail: ${email}\n` +
+        `WhatsApp: ${whatsapp}\n`
+      );
 
-      // Montando a mensagem para ser enviada
-      //const text = `Nome: ${name}%0AEmail: ${email}%0AWhatsApp: ${whatsapp}%0AMensagem: ${message}`;
-	  const text = `Olá, meu nome é ${name}. Gostaria de informações sobre uma viagem para ${destino}. Data de ida: ${ida} - Data de volta: ${volta}. Meu WhatsApp é ${whatsapp} e o email ${email}.`;
-
-      // Gerando o link de WhatsApp com os dados
-      const whatsappUrl = `https://api.whatsapp.com/send?phone=${companyWhatsAppNumber}&text=${text}`;
-
-      // Redirecionando o usuário para o WhatsApp
-      window.open(whatsappUrl, '_blank');
+      const mailtoLink = `mailto:viagens@jrgirotto.com.br?subject=${subject}&body=${body}`;
+      window.location.href = mailtoLink;
     }
-	
-	// Função para garantir que a data de volta seja maior que a data de ida
-    document.getElementById('ida').addEventListener('change', function () {
-      const ida = document.getElementById('ida').value;
-      document.getElementById('volta').setAttribute('min', ida);
-    });
-
-    // Chamar a função para configurar a data mínima no carregamento da página
-    window.onload = setMinDate;
+  </script>
+</body>
+</html>
